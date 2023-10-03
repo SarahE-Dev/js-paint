@@ -15,12 +15,12 @@
  * To make the second one happen, the number to change
  * is the first argument to `repeat`, currently set at 10.
  */
-const gridWidth = 10;
+const gridWidth = 20;
 let count = 0;
 while (count <= gridWidth * gridWidth) {
   const canvas = document.querySelector('.canvas');
   const div = document.createElement('div');
-  div.className = 'square color-5';
+  div.className = 'square white';
   canvas.appendChild(div);
   count++;
 }
@@ -49,11 +49,64 @@ while (count <= gridWidth * gridWidth) {
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
 
+const paintColors = document.querySelectorAll('.palette-color');
+const squares = document.querySelectorAll('.square');
+const paintbrush = document.querySelector('.current-brush');
 
 
 /****************************
  * EVENT LISTENER FUNCTIONS *
 ****************************/
+paintSquares()
+paintColors[0].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('red');
+  paintSquares()
+})
+paintColors[1].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('orange');
+  paintSquares()
+})
+paintColors[2].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('yellow');
+  paintSquares()
+})
+paintColors[3].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('green');
+  paintSquares()
+})
+paintColors[4].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('blue');
+  paintSquares()
+})
+paintColors[5].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('purple');
+  paintSquares()
+})
+paintColors[6].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('black');
+  paintSquares()
+})
+paintColors[7].addEventListener('click', ()=>{
+  paintbrush.classList.remove(paintbrush.classList[1]);
+  paintbrush.classList.add('white');
+  paintSquares()
+})
+function paintSquares(){
+for(let i=0; i<squares.length; i++){
+  squares[i].addEventListener('click', ()=>{
+    squares[i].classList.remove(squares[i].classList[1])
+    squares[i].classList.add(paintbrush.classList[1])
+  })
+}}
+
+
 
 // Now add some functions to handle clicking one particular square
 // and clicking one particular palette color. You can leave them
