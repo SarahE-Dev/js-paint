@@ -103,8 +103,18 @@ for(let i=0; i<squares.length; i++){
   squares[i].addEventListener('click', ()=>{
     squares[i].classList.remove(squares[i].classList[1])
     squares[i].classList.add(paintbrush.classList[1])
-  })
-}}
+  })}
+for(let i=0; i<squares.length; i++){
+  squares[i].addEventListener('mouseenter', ()=>{
+    if(isMousedown === true){ squares[i].classList.remove(squares[i].classList[1])
+    squares[i].classList.add(paintbrush.classList[1])}
+  
+
+})}}
+
+// document.querySelector('button').addEventListener('click', ()=>{
+//   if()
+// })
 
 
 
@@ -124,3 +134,14 @@ for(let i=0; i<squares.length; i++){
 // You'll need to add the appropriate event listener for each
 // square and for each palette color from the functions you
 // wrote above.
+
+let isMousedown = false;
+document.querySelector('.app').addEventListener('mouseup', ()=>{
+  isMousedown = false;
+})
+
+document.querySelector('.app').addEventListener('mousedown', ()=>{
+  isMousedown = true;
+})
+
+
